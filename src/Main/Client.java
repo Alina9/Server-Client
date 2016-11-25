@@ -7,7 +7,7 @@ import java.net.*;
 public class Client {
     public static void main(String[] args) throws IOException {
 
-        InetAddress addr = InetAddress.getByName(null);
+        InetAddress addr = InetAddress.getByName("localhost");
 
         System.out.println("addr = " + addr);
         Socket socket = new Socket(addr, Server.PORT);
@@ -17,7 +17,7 @@ public class Client {
             PrintWriter out = new PrintWriter(new BufferedWriter(
                     new OutputStreamWriter(socket.getOutputStream())), true);
 
-            out.println("GET/ src/Main/index.htm /HTTP/1.0\r\n\r\n ");
+            out.println("GET /index.htm /HTTP/1.0\r\n\r\n ");
             out.flush();
 
             String line = in.readLine();
